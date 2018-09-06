@@ -21,7 +21,7 @@ set(vid,'FramesPerTrigger',1);
 set(vid,'TriggerRepeat',Inf);
 
 
-while( vid.FramesAcquired <= 10000)
+while( vid.FramesAcquired <= 1)
     
         
 %--------------------------------------------------------------------------
@@ -50,13 +50,18 @@ while( vid.FramesAcquired <= 10000)
     %mascara
     
     
-    b=imread('Guitarra.png');b=imresize(b,[fill,col]);
-    b = (b*1.5)+(cdt2*0.8); 
-   
+    b=imread('Guitarra.png');b=imresize(b,[fill,col]);%b=b(:,:,1:3);
+    [A,map,transparency] = imread('Guitarra.png');
+    
+
+    figure(2);imshow(b);impixelinfo();
+    ind=find(transparency>0);
+    b(ind)=cdt2(ind);
+    %c = (cdt2*0.5)+(b*1.5);
     figure(1);imshow(b);impixelinfo();
     
  
-%--------------------------------------------------------------------------
+ %--------------------------------------------------------------------------
 %-- 8. Reconocimiento del objeto interactuante ----------------
 %--------------------------------------------------------------------------
 
@@ -86,9 +91,10 @@ while( vid.FramesAcquired <= 10000)
         r = rectangle('Position',p,'EdgeColor','b','LineWidth',2);%Se dibuja el
         %Cuadrado correspondiente al objeto del jugador
         
-    end 
+    end
+    
 end
-
+pause();
 %--------------------------------------------------------------------------
 %---------------------------  FIN DEL PROGRAMA ----------------------------
 %--------------------------------------------------------------------------
