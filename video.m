@@ -1,17 +1,9 @@
-clear all   % Inicializa todas las variables
-close all   % Cierra todas las ventanas, archivos y procesos abiertos
-clc         % Limpia la ventana de comandos
-objects = imaqfind %find video input objects in memory
-delete(objects) %delete a video input object from memory
-%--------------------------------------------------------------------------
-%-- 2. Configuracion de la captura de video -------------------------------
-%-------------------------------------------------------------------------
-vid=videoinput('winvideo',1,'YUY2_640x480');% Se captura un stream de video usando videoinput, con argumento
-% Se configura las opciones de adquision de video
-set(vid,'ReturnedColorSpace','rgb');%la imagen del video se va a tomar en modo RGB
-set(vid,'FramesPerTrigger',1);
-set(vid,'TriggerRepeat',Inf);
+vid = videoinput('winvideo', 1, 'YUY2_640x480');
+src = getselectedsource(vid);
 
+vid.FramesPerTrigger = 1;
+
+preview(vid);
 start(vid);
 while( vid.FramesAcquired <= 10000)       
 %--------------------------------------------------------------------------
@@ -35,10 +27,10 @@ while( vid.FramesAcquired <= 10000)
     %componentes conectados (objetos) que tienen menos de Ppíxeles de la 
     %imagen binaria BW, así obtenemos todos los objetos que cumplan con la
     %mascara  
-    guitarra=imread('Guitarra.png');guitarra=imresize(guitarra,[fill,col]);
-    guitarra = (guitarra*1.5)+(cdt2*0.8); 
+    b=imread('Guitarra.png');b=imresize(b,[fill,col]);
+    b = (b*1.5)+(cdt2*0.8); 
    
-    imshow(guitarra);
+    imshow(b);
 %--------------------------------------------------------------------------
 %-- 8. Reconocimiento del objeto interactuante ----------------
 %-------------------------------------------------------------------------
@@ -60,12 +52,8 @@ while( vid.FramesAcquired <= 10000)
         p = [x, y, 13, 13];%Creación del vector posición para el jugador
         
         %Dibujar rectangulo
-        rectangulo = rectangle('Position',p,'EdgeColor','b','LineWidth',2);%Se dibuja el
+        r = rectangle('Position',p,'EdgeColor','b','LineWidth',2);%Se dibuja el
         %Cuadrado correspondiente al objeto del jugador
         
     end 
 end
-
-%--------------------------------------------------------------------------
-%---------------------------  FIN DEL PROGRAMA ----------------------------
-%--------------------------------------------------------------------------
