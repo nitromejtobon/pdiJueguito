@@ -123,21 +123,12 @@ while( vid.FramesAcquired <= 10000)
     p1 = [x1, y1, ancho1, alto];%Creación del vector posición para el bloque 1
     p2 = [x2, y2, ancho1, alto];%Creación del vector posición para el bloque 2
     
-    p3 = [x3, y3, ancho2, alto];%Creación del vector posición para el bloque 3
-    p4 = [x4, y4, ancho3, alto];%Creación del vector posición para el bloque 4
-    
-    p5 = [x5, y5, ancho1, alto];%Creación del vector posición para el bloque 5
-    p6 = [x6, y6, ancho1, alto];%Creación del vector posición para el bloque 6
-    
    
     
     %Dibujar bloques
     b1 = rectangle('Position',p1,'LineWidth',1,'FaceColor',[0 0.8 1],'EdgeColor',[0 0.8 1]);%Se dibuja el bloque 1
     b2 = rectangle('Position',p2,'LineWidth',1,'FaceColor',[0 0.8 1],'EdgeColor',[0 0.8 1]);%Se dibuja el bloque 2
-    b3 = rectangle('Position',p3,'LineWidth',1,'FaceColor',[0 0.8 1],'EdgeColor',[0 0.8 1]);%Se dibuja el bloque 3
-    b4 = rectangle('Position',p4,'LineWidth',1,'FaceColor',[0 0.8 1],'EdgeColor',[0 0.8 1]);%Se dibuja el bloque 4
-    b5 = rectangle('Position',p5,'LineWidth',1,'FaceColor',[0 0.8 1],'EdgeColor',[0 0.8 1]);%Se dibuja el bloque 5
-    b6 = rectangle('Position',p6,'LineWidth',1,'FaceColor',[0 0.8 1],'EdgeColor',[0 0.8 1]);%Se dibuja el bloque 6
+    
    
     
 %--------------------------------------------------------------------------
