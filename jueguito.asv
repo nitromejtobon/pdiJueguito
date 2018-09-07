@@ -13,9 +13,9 @@ set(vid,'FramesPerTrigger',1);
 set(vid,'TriggerRepeat',Inf);
 start(vid);
 x=100;
-yr=randi(300)*-1;
-yg=randi(300)*-1;
-yb=randi(300)*-1;
+yr=randi(100)*-1;
+yg=randi(100)*-1;
+yb=randi(100)*-1;
 
 alto=100;ancho=100;
 guitarraRead=imread('Guitarra.png');guitarraRead=imresize(guitarraRead,[480,640]);
@@ -35,13 +35,13 @@ while( vid.FramesAcquired <= 10000)
     greenNote=image(x+120,yg,greenNoteRead);set(greenNote, 'AlphaData', greenTrans);
     blueNote=image(x+240,yb,blueNoteRead);set(blueNote, 'AlphaData', blueTrans);
     if(yr>640)
-        yr=randi(150)*-1;
+        yr=randi();
     end
     if(yr>640)
-        yg=randi(150)*-1;
+        yg=randi();
     end
     if(yr>640)
-        yb=randi(150)*-1;
+        yb=randi();
     end
     yr=yr+5;
     yg=yg+5;
