@@ -1,4 +1,4 @@
-
+ 
 %--------------------------------------------------------------------------
 %------- JUEGO PDI ----------------------------------------------
 %------- Coceptos básicos de PDI-------------------------------------------
@@ -116,7 +116,7 @@ while( vid.FramesAcquired <= 10000)
 %-- 7. Vizualizar los bloques en Pantalla ----------------
 %--------------------------------------------------------------------------
 
-    imshow(cdt2);%Mostramos la imagen
+    figure(2);imshow(cdt2);%Mostramos la imagen
     
     % Bloques coordenadas y dimensiones
     %Vector posición se compone de Xinicial, Yinicial, Ancho y Alto
@@ -167,7 +167,7 @@ while( vid.FramesAcquired <= 10000)
         text(0,20,txt,'Color','b','FontSize', 14);%Se definen carecteristicas del
         %texto encargado del NIVEL
         txt2 = ['PUNTOS: ',num2str(vid.FramesAcquired)];%Marcador encargado del 
-        %PUNTAJE que lleve el participante (Es igual a la cantidad de
+        %PUNTAJE que lleve el participante (Es igual a la ca ntidad de
         %frames que han sido capturados hasta el momento
         text(0,40,txt2,'Color','r','FontSize', 14);%Se definen carecteristicas del
         %texto encargado del PUNTOS
